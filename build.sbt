@@ -15,5 +15,6 @@ lazy val projA=project.settings(libraryDependencies++=LOG4J_LIBS)
 lazy val projB=project.dependsOn(projA % "test->test")
 
 lazy val projC=project
+                .enablePlugins(PackPlugin)
                 .settings(packMain := Map(),packGenerateMakefile := false)
                 .dependsOn(projB)
